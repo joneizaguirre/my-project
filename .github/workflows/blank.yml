@@ -6,9 +6,17 @@ on:
       - main
 
 jobs:
-  saludo:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Decir hola
-        run: echo "Hola, GitHub Actions está funcionando 🚀"
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Ver archivos del repo
+        run: ls -la
+
+      - name: Ejecutar un script
+        run: |
+          echo "Estoy dentro del runner"
+          pwd
